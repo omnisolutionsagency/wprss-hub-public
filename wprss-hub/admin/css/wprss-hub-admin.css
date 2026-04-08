@@ -1,0 +1,306 @@
+/* ==========================================================================
+   WPRSS Hub Admin Styles
+   ========================================================================== */
+
+.wprss-hub-wrap {
+    padding-bottom: 60px; /* space for health bar */
+}
+
+/* ---------- Status Badges ---------- */
+
+.wprss-hub-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+.wprss-hub-badge--pass,
+.wprss-hub-badge--active,
+.wprss-hub-badge--done {
+    background: #d4edda;
+    color: #155724;
+}
+
+.wprss-hub-badge--fail,
+.wprss-hub-badge--failed {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.wprss-hub-badge--queued,
+.wprss-hub-badge--disabled,
+.wprss-hub-badge--skipped {
+    background: #e2e3e5;
+    color: #383d41;
+}
+
+.wprss-hub-badge--running,
+.wprss-hub-badge--warning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* ---------- Toast Notifications ---------- */
+
+.wprss-hub-toast {
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 999999;
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+}
+
+.wprss-hub-toast--visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.wprss-hub-toast--pass {
+    background: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.wprss-hub-toast--fail {
+    background: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #dc3545;
+}
+
+/* ---------- Modal ---------- */
+
+.wprss-hub-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wprss-hub-modal-content {
+    background: #fff;
+    padding: 24px;
+    border-radius: 6px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- Checkboxes ---------- */
+
+.wprss-hub-checkboxes label {
+    display: block;
+    padding: 4px 0;
+}
+
+/* ---------- Settings Grid ---------- */
+
+.wprss-hub-settings-grid-wrap {
+    overflow-x: auto;
+}
+
+.wprss-hub-settings-grid {
+    min-width: 600px;
+}
+
+.wprss-hub-settings-grid th,
+.wprss-hub-settings-grid td {
+    min-width: 140px;
+    padding: 8px 12px;
+}
+
+.wprss-hub-sticky-col {
+    position: sticky;
+    left: 0;
+    background: #f1f1f1;
+    z-index: 2;
+    font-weight: 600;
+}
+
+.wprss-hub-global-col {
+    background: #f7f7f7;
+    cursor: pointer;
+}
+
+.wprss-hub-setting-cell {
+    cursor: pointer;
+}
+
+.wprss-hub-setting-cell:hover,
+.wprss-hub-global-col:hover {
+    background: #e8f0fe;
+}
+
+.wprss-hub-cell-value {
+    display: inline-block;
+    min-width: 50px;
+}
+
+.wprss-hub-cell-error {
+    color: #dc3545;
+    font-style: italic;
+}
+
+.wprss-hub-inline-input {
+    width: 100px;
+    padding: 2px 4px;
+    margin-right: 4px;
+}
+
+/* ---------- Skeleton Loaders ---------- */
+
+.wprss-hub-skeleton {
+    display: inline-block;
+    width: 80px;
+    height: 14px;
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: wprss-hub-shimmer 1.5s infinite;
+    border-radius: 3px;
+}
+
+@keyframes wprss-hub-shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ---------- Health Bar ---------- */
+
+.wprss-hub-health-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    padding: 8px 20px;
+    z-index: 99999;
+    font-size: 13px;
+}
+
+.wprss-hub-health-bar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-left: 160px; /* account for WP admin sidebar */
+}
+
+.wprss-hub-health-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: #f7f7f7;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.wprss-hub-health-chip small {
+    color: #666;
+}
+
+.wprss-hub-health-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.wprss-hub-health-dot--pass {
+    background: #28a745;
+}
+
+.wprss-hub-health-dot--fail {
+    background: #dc3545;
+}
+
+.wprss-hub-health-dot--warning {
+    background: #ffc107;
+}
+
+.wprss-hub-health-dot--disabled {
+    background: #6c757d;
+}
+
+/* ---------- Loading Rows ---------- */
+
+.wprss-hub-loading-row td {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+}
+
+/* ---------- Spinner ---------- */
+
+.wprss-hub-spinner::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #ccc;
+    border-top-color: #333;
+    border-radius: 50%;
+    animation: wprss-hub-spin 0.6s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+@keyframes wprss-hub-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ---------- Job Detail Row ---------- */
+
+.wprss-hub-job-detail > td {
+    padding: 0 12px 12px;
+    background: #fafafa;
+}
+
+.wprss-hub-job-detail .widefat {
+    margin-top: 8px;
+}
+
+.wprss-hub-job-row {
+    cursor: pointer;
+}
+
+/* ---------- Tabs ---------- */
+
+.wprss-hub-tab-content {
+    margin-top: 16px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media screen and (max-width: 782px) {
+    .wprss-hub-health-bar-inner {
+        margin-left: 0;
+    }
+}
